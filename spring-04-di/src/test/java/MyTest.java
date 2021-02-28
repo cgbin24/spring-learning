@@ -17,8 +17,10 @@ public class MyTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("userBeans.xml");
 //        User user = (User) context.getBean("user");
         User user = context.getBean("user1",User.class);
-//        System.out.println(user.getName());
-        System.out.println(user);
+        User user2 = context.getBean("user1",User.class);
+        System.out.println(user.hashCode());
+        System.out.println(user2.hashCode());
+        System.out.println(user == user2);
     }
 
 }
