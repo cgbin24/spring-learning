@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cat" class="xyz.cgbin.pojo.Cat" />
+    <bean id="dog" class="xyz.cgbin.pojo.Dog" />
+
+<!--    <bean id="people" class="xyz.cgbin.pojo.People" >-->
+<!--        <property name="name" value="cgbin" />-->
+<!--        <property name="cat" ref="cat" />-->
+<!--        <property name="dog" ref="dog" />-->
+<!--    </bean>-->
+
+    <!--
+    byName: 会自动在容器上下文查找，和自身对set方法后面的值对应的bean id!
+    -->
+<!--    <bean id="people" class="xyz.cgbin.pojo.People" autowire="byName">-->
+<!--        <property name="name" value="cgbin" />-->
+<!--    </bean>-->
+
+    <!--
+    byName: 会自动在容器上下文查找，和自身对象属性类型相同的bean，可以不用理会id，但当存在多个类型一致时会报错!
+    -->
+    <bean id="people" class="xyz.cgbin.pojo.People" autowire="byType">
+        <property name="name" value="cgbin" />
+    </bean>
+
+</beans>
